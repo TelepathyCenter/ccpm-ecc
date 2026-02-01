@@ -1,3 +1,44 @@
+# CCPM-ECC (Claude Code PM + Everything Claude Code)
+
+> **This is a modified fork of [automazeio/ccpm](https://github.com/automazeio/ccpm)** with rules trimmed to work alongside the [Everything Claude Code](https://github.com/affaan-m/everything-claude-code) plugin without duplication. If you don't use Everything Claude Code, use the [original CCPM](https://github.com/automazeio/ccpm) instead.
+
+## Quick Install
+
+**Prerequisite**: Install [Everything Claude Code](https://github.com/affaan-m/everything-claude-code) as a global Claude Code plugin first.
+
+Then from your project root:
+```bash
+bash <(curl -s https://raw.githubusercontent.com/TelepathyCenter/ccpm-ecc/main/install/install-ecc.sh)
+```
+
+Or clone and run:
+```bash
+git clone https://github.com/TelepathyCenter/ccpm-ecc.git /tmp/ccpm-ecc
+bash /tmp/ccpm-ecc/install/install-ecc.sh
+rm -rf /tmp/ccpm-ecc
+```
+
+After install, run `/pm:init` inside Claude Code to set up GitHub labels.
+
+## What's Different from Upstream CCPM
+
+- `rules/branch-operations.md` — generic commit advice removed (defers to ECC's `git-workflow.md` conventional commits)
+- `rules/test-execution.md` — TDD methodology removed (defers to ECC's `testing.md` RED/GREEN/IMPROVE workflow)
+- Install script creates a `CLAUDE.md` with ECC prerequisite notice and PM agent roster
+- Install script handles `.gitignore` correctly (ignores only `.claude/epics/` and `settings.local.json`, not all of `.claude/`)
+
+To pull updates from upstream CCPM:
+```bash
+cd ccpm-ecc
+git fetch upstream
+git merge upstream/main
+# Re-apply trims if upstream changed branch-operations.md or test-execution.md
+```
+
+---
+
+# Original README
+
 # Claude Code PM
 
 [![Automaze](https://img.shields.io/badge/By-automaze.io-4b3baf)](https://automaze.io)

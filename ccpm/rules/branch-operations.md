@@ -22,36 +22,15 @@ The branch will be created and pushed to origin with upstream tracking.
 ### Agent Commits
 - Agents commit directly to the branch
 - Use small, focused commits
-- Commit message format: `Issue #{number}: {description}`
-- Example: `Issue #1234: Add user authentication schema`
-
-### File Operations
-```bash
-# Working directory is the current directory
-# (no need to change directories like with worktrees)
-
-# Normal git operations work
-git add {files}
-git commit -m "Issue #{number}: {change}"
-
-# View branch status
-git status
-git log --oneline -5
-```
+- Follow conventional commits format (see project rules), prefixed with `Issue #{number}:` for PM-tracked work
+- Example: `Issue #1234: feat: add user authentication schema`
 
 ## Parallel Work in Same Branch
 
 Multiple agents can work in the same branch if they coordinate file access:
-```bash
-# Agent A works on API
-git add src/api/*
-git commit -m "Issue #1234: Add user endpoints"
-
-# Agent B works on UI (coordinate to avoid conflicts!)
-git pull origin epic/{name}  # Get latest changes
-git add src/ui/*
-git commit -m "Issue #1235: Add dashboard component"
-```
+- Each agent owns specific file paths to avoid conflicts
+- Always `git pull origin epic/{name}` before committing to get latest changes
+- See agent-coordination rule for detailed multi-agent patterns
 
 ## Merging Branches
 

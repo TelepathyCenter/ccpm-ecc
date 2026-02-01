@@ -1,6 +1,7 @@
 # Test Execution Rule
 
 Standard patterns for running tests across all testing commands.
+For TDD methodology and coverage targets, see project testing rules.
 
 ## Core Principles
 
